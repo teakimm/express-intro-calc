@@ -1,3 +1,5 @@
+'use strict';
+
 const { BadRequestError } = require("./expressError");
 
 
@@ -5,9 +7,11 @@ const { BadRequestError } = require("./expressError");
 
 function convertStrNums(strNums) {
   let intNums = [];
-  for(str of strNums) {
+
+  //use let to declare str
+  for (str of strNums) {
     const num = Number(str);
-    if(isNaN(num)) {
+    if (isNaN(num)) {
       throw new BadRequestError(`'${str}' is not a number`);
     }
     intNums.push(num);
